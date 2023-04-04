@@ -1,7 +1,8 @@
+import TypeIt from 'typeit-react'
 import { ChatBubble } from '../chat-bubble'
 import styles from './index.module.css'
 
-export function SessionRecord({ avatar, content, order }) {
+export function SessionRecord({ avatar, content, order, shouldTypeIt }) {
   return (
     <div
       className={
@@ -14,7 +15,7 @@ export function SessionRecord({ avatar, content, order }) {
         alt="暂无图片"
       />
       <ChatBubble
-        content={content}
+        content={shouldTypeIt ? <TypeIt speed={60}>{content}</TypeIt> : content}
         order={order}
       />
     </div>

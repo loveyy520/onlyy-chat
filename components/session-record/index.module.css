@@ -7,8 +7,13 @@
     margin-bottom: 10px;
 }
 
+.session-record {
+    padding-right: 90px;
+}
+
 .session-record-reverse {
     flex-direction: row-reverse;
+    padding-left: 90px;
 }
 
 .avatar {

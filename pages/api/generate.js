@@ -17,16 +17,6 @@ export default async function (req, res) {
       return
     }
 
-    const animal = req.body.animal || ''
-    if (animal.trim().length === 0) {
-      res.status(400).json({
-        error: {
-          message: 'Please enter a valid animal'
-        }
-      })
-      return
-    }
-
     try {
       // const completion = await openai.createCompletion(
       const completion = await openai.createChatCompletion(
@@ -37,19 +27,20 @@ export default async function (req, res) {
           messages: [
             {
               role: 'system',
-              content: 'You are a helpful assistant talented at programming.'
+              content: process.env.CHARACTER_DESIGN
             },
             // {"role": "user", "content": "Who won the world series in 2020?"},
             // {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
-            { role: 'user', content: req.body.animal }
+            // { role: 'user', content: req.body.animal }
+            ...req.body
           ]
+        },
+        {
+          proxy: {
+            host: '127.0.0.1',
+            port: 7890
+          }
         }
-        // {
-        //   proxy: {
-        //     host: '127.0.0.1',
-        //     port: 7890
-        //   }
-        // }
       )
       console.log('comp:', completion.data.choices[0].message.content)
       res
