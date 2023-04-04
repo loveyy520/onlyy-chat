@@ -1,0 +1,26 @@
+
+.chat-bubble, .chat-bubble-reverse {
+    position: relative;
+    padding: 12px 15px;
+    background: lightgreen;
+    border-radius: 10px;
+    letter-spacing: 0.05em;
+}
+
+.chat-bubble::before{
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 12px;
+    border: 10px solid transparent;
+    border-right: 16px solid lightgreen;
+}
+
+.chat-bubble-reverse::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 12px;
+    border: 10px solid transparent;
+    border-left: 16px solid lightgreen;
+}
