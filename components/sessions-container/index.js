@@ -5,7 +5,12 @@ import styles from './index.module.css'
 const userAvatar = 'https://assets.onlyy.vip/icons/dst/Willow.png'
 const botAvatar = 'https://assets.onlyy.vip/icons/dst/Wendy.png'
 
-export function SessionsContainer({ conversations, loading }) {
+export function SessionsContainer({
+  conversations,
+  loading,
+  shouldScrollToBottom,
+  setShouldScrollToBottom
+}) {
   const greetings = [
     {
       role: 'assistant',
@@ -19,12 +24,20 @@ export function SessionsContainer({ conversations, loading }) {
   const sessionRecordRef = useRef(null)
   const loadingRef = useRef(null)
   useEffect(() => {
-    if (loading) {
-      loadingRef.current.scrollIntoView()
-    } else {
-      sessionRecordRef.current.scrollIntoView()
+    if (shouldScrollToBottom) {
+      if (loading) {
+        loadingRef.current.scrollIntoView()
+      } else {
+        sessionRecordRef.current.scrollIntoView()
+      }
+      setShouldScrollToBottom(false)
     }
-  })
+    // if (loading) {
+    //   loadingRef.current.scrollIntoView()
+    // } else {
+    //   sessionRecordRef.current.scrollIntoView()
+    // }
+  }, [shouldScrollToBottom])
 
   return (
     <div className={styles['sessions-container']}>

@@ -2,7 +2,7 @@ import { Button, Input, message } from 'antd'
 import { CrownOutlined } from '@ant-design/icons'
 import styles from './index.module.css'
 
-export function NewMessage({ value, setValue, onSend }) {
+export function NewMessage({ value, setValue, onSend, onFocus }) {
   function handleSendClick(e) {
     if (!value) return message.warning('不可以发送空消息哦!')
     onSend(e)
@@ -14,6 +14,7 @@ export function NewMessage({ value, setValue, onSend }) {
         autoSize={{ minRows: 1, maxRows: 6 }}
         style={{ width: '100%' }}
         onChange={(e) => setValue(e.target.value)}
+        onFocus={onFocus}
       />
       <Button
         className={styles['messag-button']}
