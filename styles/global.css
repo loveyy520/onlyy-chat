@@ -1,0 +1,14 @@
+@import './variables.css';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: calc(750 / 100vw)
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}

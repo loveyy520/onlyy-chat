@@ -1,6 +1,6 @@
 
 .session-record, .session-record-reverse {
-    width: calc(100% - 90px);
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -8,12 +8,12 @@
 }
 
 .session-record {
-    padding-right: 90px;
+    padding-right: var(--session-record-padding);
 }
 
 .session-record-reverse {
     flex-direction: row-reverse;
-    padding-left: 90px;
+    padding-left: var(--session-record-padding);
 }
 
 .avatar {

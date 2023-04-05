@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { SessionRecord } from '../session-record'
 import styles from './index.module.css'
 
@@ -13,28 +14,49 @@ export function SessionsContainer({ conversations, loading }) {
     }
   ]
   const sessions = [...greetings, ...conversations]
+  const decorations = ['🦋', '🍒', '🍭', '🍷']
+  const decorationLength = decorations.length
+  const sessionRecordRef = useRef(null)
+  const loadingRef = useRef(null)
+  useEffect(() => {
+    if (loading) {
+      loadingRef.current.scrollIntoView()
+    } else {
+      sessionRecordRef.current.scrollIntoView()
+    }
+  })
 
   return (
     <div className={styles['sessions-container']}>
       {sessions.map((conversation, i) => (
-        <SessionRecord
+        <div
           key={conversation.role + i}
-          content={conversation.content}
-          order={Number(conversation.role === 'assistant')}
-          avatar={conversation.role === 'assistant' ? botAvatar : userAvatar}
-          shouldTypeIt={
-            i === sessions.length - 1 && conversation.role === 'assistant'
-          }
-        />
+          ref={sessionRecordRef}
+        >
+          <SessionRecord
+            content={conversation.content}
+            order={Number(conversation.role === 'assistant')}
+            avatar={conversation.role === 'assistant' ? botAvatar : userAvatar}
+            decoration={decorations[i % decorationLength]}
+            shouldTypeIt={
+              i === sessions.length - 1 && conversation.role === 'assistant'
+            }
+          />
+        </div>
       ))}
       {loading && (
-        <SessionRecord
+        <div
           key="loading"
-          content="(喵~让我想想...)"
-          order={1}
-          avatar={botAvatar}
-          shouldTypeIt={true}
-        />
+          ref={loadingRef}
+        >
+          <SessionRecord
+            content="(喵~让我想想...)"
+            order={1}
+            avatar={botAvatar}
+            decoration="🕸"
+            shouldTypeIt={true}
+          />
+        </div>
       )}
     </div>
   )

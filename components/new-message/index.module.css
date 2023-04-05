@@ -1,0 +1,12 @@
+.new-message {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    background: var(--new-message-bg-color);
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.messag-button {
+    margin-left: 0.5rem;
+}

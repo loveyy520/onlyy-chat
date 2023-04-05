@@ -1,3 +1,5 @@
 export * from './chat-bubble'
 export * from './session-record'
 export * from './sessions-container'
+export * from './new-message'
+export * from './layout'

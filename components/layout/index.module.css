@@ -1,0 +1,4 @@
+.layout-panel {
+    height: 100vh;
+    padding: var(--layout-panel-padding-top) var(--layout-panel-padding-right) var(--layout-panel-padding-bottom) var(--layout-panel-padding-left);
+}

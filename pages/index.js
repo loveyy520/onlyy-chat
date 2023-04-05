@@ -2,12 +2,11 @@ import Head from "next/head";
 import { useState } from 'react'
 import styles from './index.module.css'
 
-import { SessionsContainer } from '../components'
+import { SessionsContainer, NewMessage } from '../components'
 
 export default function Home() {
   const [loading, setLoading] = useState(false)
   const [messageInput, setMessageInput] = useState('')
-  const [result, setResult] = useState('')
   const [conversations, setConversations] = useState(() => [])
   async function onSubmit(event) {
     event.preventDefault()
@@ -43,7 +42,6 @@ export default function Home() {
       }
 
       setLoading(false)
-      setResult(data.result)
       setConversations((prevConversations) => {
         return [
           ...prevConversations,
@@ -60,28 +58,8 @@ export default function Home() {
     }
   }
 
-  function timer() {
-    setConversations((prevConversations) => [
-      ...prevConversations,
-      {
-        role: 'user',
-        content: '你说123'
-      }
-    ])
-    console.log('1:', conversations)
-    setTimeout(() => {
-      setConversations((prevConversations) => [
-        ...prevConversations,
-        {
-          role: 'assistant',
-          content: '123'
-        }
-      ])
-    }, 2000)
-  }
-
   return (
-    <div>
+    <div className={styles['page-container']}>
       <Head>
         <title>OpenAI Quickstart</title>
         <link
@@ -90,31 +68,15 @@ export default function Home() {
         />
       </Head>
 
-      <main className={styles.main}>
-        <img
-          src="/dog.png"
-          className={styles.icon}
-        />
-        <h3 onClick={timer}>Onlyy Bot</h3>
-        <SessionsContainer
-          loading={loading}
-          conversations={conversations}
-        />
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="message"
-            placeholder="Enter a question"
-            value={messageInput}
-            onChange={(e) => setMessageInput(e.target.value)}
-          />
-          <input
-            type="submit"
-            value="Generate answer"
-          />
-        </form>
-        <div className={styles.result}>{result}</div>
-      </main>
+      <SessionsContainer
+        loading={loading}
+        conversations={conversations}
+      />
+      <NewMessage
+        value={messageInput}
+        setValue={setMessageInput}
+        onSend={onSubmit}
+      />
     </div>
   )
 }

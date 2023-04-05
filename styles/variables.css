@@ -1,0 +1,27 @@
+
+:root {
+    /* header */
+
+    --app-header-height: 60px;
+    --app-header-bg-color: #7d96ff;
+    --app-header-shadow-color: #0e2337;
+    --app-title-text-color: #000;
+
+    --app-title-text-shadow: #fff 0 0 5px;
+
+    /* layout */
+    --layout-panel-padding-top: var(--app-header-height);
+    --layout-panel-padding-left: 0;
+    --layout-panel-padding-right: 0;
+    --layout-panel-padding-bottom: 0;
+
+    /* session--record */
+    --session-record-padding: 5.5rem;
+    --bubble-bg-color: lightgreen;
+    --bubble-reverse-bg-color: rgb(165 199 255);
+    --bubble-text-color: #353740;
+    --bubble-text-shadow-color: #fff;
+
+    /* new-message-input */
+    --new-message-bg-color: #e8f1f7;
+}

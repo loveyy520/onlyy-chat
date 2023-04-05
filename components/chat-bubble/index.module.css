@@ -2,9 +2,19 @@
 .chat-bubble, .chat-bubble-reverse {
     position: relative;
     padding: 12px 15px;
-    background: lightgreen;
     border-radius: 10px;
     letter-spacing: 0.05em;
+    color: var(--bubble-text-color);
+    text-shadow: var(--bubble-text-shadow-color) 0 0 3px;
+}
+
+.chat-bubble {
+    background: var(--bubble-bg-color);
+
+}
+
+.chat-bubble-reverse {
+    background: var(--bubble-reverse-bg-color);
 }
 
 .chat-bubble::before{
@@ -13,7 +23,7 @@
     left: -20px;
     top: 12px;
     border: 10px solid transparent;
-    border-right: 16px solid lightgreen;
+    border-right: 16px solid var(--bubble-bg-color);
 }
 
 .chat-bubble-reverse::after {
@@ -22,5 +32,11 @@
     right: -20px;
     top: 12px;
     border: 10px solid transparent;
-    border-left: 16px solid lightgreen;
+    border-left: 16px solid var(--bubble-reverse-bg-color);
+}
+
+.bubble-decoration {
+    position: absolute;
+    top: -8px;
+    right: -12px;
 }

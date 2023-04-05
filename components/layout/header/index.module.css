@@ -1,0 +1,21 @@
+.app-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: var(--app-header-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--app-header-bg-color);
+    box-shadow: var(--app-header-shadow-color) 0px 1px 3px;
+}
+
+.icon {
+    width: 34px;
+}
+
+.app-title {
+    text-color: var(--app-title-text-color);
+    text-shadow: var(--app-title-text-shadow);
+}
