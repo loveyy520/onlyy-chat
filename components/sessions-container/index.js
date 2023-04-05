@@ -47,6 +47,7 @@ export function SessionsContainer({
           ref={sessionRecordRef}
         >
           <SessionRecord
+            id={conversation.role + i}
             content={conversation.content}
             order={Number(conversation.role === 'assistant')}
             avatar={conversation.role === 'assistant' ? botAvatar : userAvatar}
@@ -63,6 +64,7 @@ export function SessionsContainer({
           ref={loadingRef}
         >
           <SessionRecord
+            id="loading"
             content="(喵~让我想想...)"
             order={1}
             avatar={botAvatar}

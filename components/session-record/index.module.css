@@ -17,8 +17,8 @@
 }
 
 .avatar {
-    width: 2.8rem;
-    height: 2.8rem;
-    margin: 0 1rem;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    margin: var(--avatar-margin);
     border-radius: 10px;
 }

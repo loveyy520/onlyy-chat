@@ -17,7 +17,12 @@
 
     /* session--record */
     --sessions-container-bg-color: #fff;
-    --session-record-padding: 5.5rem;
+    --session-record-padding: 4.5rem;
+
+    --avatar-size: 2.8rem;
+    --avatar-margin: 0 1rem;
+
+    --bubble-width: calc(100% - var(--avatar-size) - var(--avatar-margin) / 2);
     --bubble-bg-color: lightgreen;
     --bubble-reverse-bg-color: rgb(165 199 255);
     --bubble-text-color: #353740;

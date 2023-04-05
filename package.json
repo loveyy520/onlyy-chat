@@ -9,7 +9,12 @@
   },
   "dependencies": {
     "antd": "^5.4.0",
+    "cherry-markdown": "^0.8.17",
     "classnames": "^2.3.2",
+    "echarts": "^5.4.2",
+    "highlight.js": "^11.7.0",
+    "markdown-to-jsx": "^7.2.0",
+    "mermaid": "8.11.1",
     "next": "^13.1.1",
     "openai": "^3.1.0",
     "react": "^18.2.0",

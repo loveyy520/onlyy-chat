@@ -1,6 +1,6 @@
 import TypeIt from 'typeit-react'
 import cn from 'classnames'
-import { ChatBubble } from '../chat-bubble'
+import { ChatBubble, CherryMarkdown } from '../../components'
 import styles from './index.module.css'
 
 export function SessionRecord({
@@ -8,7 +8,8 @@ export function SessionRecord({
   content,
   order,
   decoration,
-  shouldTypeIt
+  shouldTypeIt,
+  id
 }) {
   return (
     <div
@@ -23,7 +24,23 @@ export function SessionRecord({
         alt="暂无图片"
       />
       <ChatBubble
-        content={shouldTypeIt ? <TypeIt speed={60}>{content}</TypeIt> : content}
+        content={
+          shouldTypeIt ? (
+            <TypeIt speed={60}>
+              {
+                <CherryMarkdown
+                  id={id}
+                  content={content}
+                />
+              }
+            </TypeIt>
+          ) : (
+            <CherryMarkdown
+              id={id}
+              content={content}
+            />
+          )
+        }
         order={order}
         decoration={decoration}
       />

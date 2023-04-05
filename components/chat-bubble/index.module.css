@@ -1,11 +1,27 @@
 
 .chat-bubble, .chat-bubble-reverse {
     position: relative;
-    padding: 12px 15px;
+    max-width: var(--bubble-width);
+    padding: 12px;
     border-radius: 10px;
     letter-spacing: 0.05em;
     color: var(--bubble-text-color);
     text-shadow: var(--bubble-text-shadow-color) 0 0 3px;
+    overflow: hidden;
+}
+
+.chat-bubble>span,.chat-bubble-reverse>span  {
+    display: block;
+}
+
+.chat-bubble pre, .chat-bubble-reverse pre {
+    display: block;
+    /* width: calc(100% - 24px); */
+    overflow: scroll;
+    color: #fff;
+    padding: 0 0.05rem;
+    text-shadow: none;
+    border-radius: 10px;
 }
 
 .chat-bubble {
@@ -35,8 +51,14 @@
     border-left: 16px solid var(--bubble-reverse-bg-color);
 }
 
+.decoration-wrapper {
+    width: 0;
+    height: 0;
+    position: relative;
+}
+
 .bubble-decoration {
     position: absolute;
     top: -8px;
-    right: -12px;
+    left: -9px;
 }
