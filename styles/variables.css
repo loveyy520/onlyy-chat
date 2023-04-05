@@ -16,6 +16,7 @@
     --layout-panel-padding-bottom: 0;
 
     /* session--record */
+    --sessions-container-bg-color: #fff;
     --session-record-padding: 5.5rem;
     --bubble-bg-color: lightgreen;
     --bubble-reverse-bg-color: rgb(165 199 255);

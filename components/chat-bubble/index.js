@@ -10,7 +10,7 @@ export function ChatBubble({ content, order, decoration }) {
         [styles['chat-bubble-reverse']]: !order
       })}
     >
-      {order && (
+      {!!order && (
         <span className={styles['bubble-decoration']}>{decoration}</span>
       )}
       {content}
