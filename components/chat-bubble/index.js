@@ -6,13 +6,21 @@ export function ChatBubble({ content, order, decoration }) {
 
   return (
     <>
-      <div
-        className={cn({
-          [styles['chat-bubble']]: order,
-          [styles['chat-bubble-reverse']]: !order
-        })}
-      >
-        {content}
+      <div className={styles['chat-bubble-wrapper']}>
+        <div
+          className={cn({
+            [styles['triangle-left']]: order,
+            [styles['triangle-right']]: !order
+          })}
+        ></div>
+        <div
+          className={cn({
+            [styles['chat-bubble']]: order,
+            [styles['chat-bubble-reverse']]: !order
+          })}
+        >
+          {content}
+        </div>
       </div>
       <div className={styles['decoration-wrapper']}>
         {!!order && (

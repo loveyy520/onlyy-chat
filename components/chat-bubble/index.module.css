@@ -1,4 +1,10 @@
 
+.chat-bubble-wrapper {
+    position: relative;
+    max-width: var(--bubble-width);
+    border-radius: 10px;
+}
+
 .chat-bubble, .chat-bubble-reverse {
     position: relative;
     max-width: var(--bubble-width);
@@ -33,7 +39,7 @@
     background: var(--bubble-reverse-bg-color);
 }
 
-.chat-bubble::before{
+.triangle-left {
     content: '';
     position: absolute;
     left: -20px;
@@ -42,7 +48,7 @@
     border-right: 16px solid var(--bubble-bg-color);
 }
 
-.chat-bubble-reverse::after {
+.triangle-right {
     content: '';
     position: absolute;
     right: -20px;
