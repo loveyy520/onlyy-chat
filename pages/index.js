@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <div className={styles['page-container']}>
       <Head>
-        <title>OpenAI Quickstart</title>
+        <title>OnlyyChat | 猫猫</title>
         <link
           rel="icon"
           href="/dog.png"
