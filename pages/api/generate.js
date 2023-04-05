@@ -34,13 +34,13 @@ export default async function (req, res) {
             // { role: 'user', content: req.body.animal }
             ...req.body
           ]
-        },
-        {
-          proxy: {
-            host: '127.0.0.1',
-            port: 7890
-          }
         }
+        // {
+        //   proxy: {
+        //     host: '127.0.0.1',
+        //     port: 7890
+        //   }
+        // }
       )
       console.log('comp:', completion.data.choices[0].message.content)
       res
