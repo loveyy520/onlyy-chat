@@ -3,9 +3,9 @@ import { CrownOutlined } from '@ant-design/icons'
 import styles from './index.module.css'
 
 export function NewMessage({ value, setValue, onSend }) {
-  function handleSendClick() {
+  function handleSendClick(e) {
     if (!value) return message.warning('不可以发送空消息哦!')
-    onSend()
+    onSend(e)
   }
   return (
     <div className={styles['new-message']}>
